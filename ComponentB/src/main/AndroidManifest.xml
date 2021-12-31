@@ -2,11 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.componentb">
 
-    <application android:name=".BApplication">
-        <meta-data
-            android:name="com.example.componentb.BApplication"
-            android:value="com.example.componentb.BApplication" />
-
+    <application>
         <activity
             android:name=".BMainActivity"
             android:exported="true">

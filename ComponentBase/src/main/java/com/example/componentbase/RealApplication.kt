@@ -3,6 +3,7 @@ package com.example.componentbase
 import android.app.Application
 import android.content.Context
 import android.content.pm.PackageManager
+import android.content.res.Configuration
 import java.lang.reflect.Method
 
 /**
@@ -10,7 +11,8 @@ import java.lang.reflect.Method
  * @date 创建时间：2021/12/24 12:20
  * @Description 描述：
  **/
-open class BaseApplication : Application() {
+open class RealApplication : Application() {
+    //通过注解注册
     private val moduleApps = ArrayList<Application>()
 
     override fun attachBaseContext(base: Context?) {
@@ -34,21 +36,11 @@ open class BaseApplication : Application() {
                 val cls = Class.forName(it.toString())
                 val app = cls.newInstance()
                 if (app is Application && cls.name != this::class.java.name) {
-                    initModuleAppAttach(app)
+                    moduleApps.add(app)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
             }
-        }
-    }
-
-    private fun initModuleAppAttach(app: Application) {
-        val method: Method? =
-            Application::class.java.getDeclaredMethod("attach", Context::class.java)
-        if (method != null) {
-            method.isAccessible = true
-            method.invoke(app, baseContext)
-            moduleApps.add(app)
         }
     }
 }

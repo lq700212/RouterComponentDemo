@@ -18,6 +18,9 @@ class AMainActivity : AppCompatActivity() {
 
         binding.btnOpenBDialog.setOnClickListener {
             val bProviderManager = Warehouse.get("IBProviderManager") as IBProviderManager?
+            if (bProviderManager == null) {
+                Toast.makeText(this@AMainActivity, "未找到B组件", Toast.LENGTH_LONG).show()
+            }
             bProviderManager?.showDialog(this@AMainActivity, "A调用B的弹窗", object : BaseCallback {
                 override fun onCallback() {
                     Toast.makeText(this@AMainActivity, "A调用B的弹窗成功", Toast.LENGTH_LONG).show()
