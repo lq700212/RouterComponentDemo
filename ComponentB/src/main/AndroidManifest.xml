@@ -3,14 +3,7 @@
     package="com.example.componentb">
 
     <application>
-        <activity
-            android:name=".BMainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.example.componentb.ACTIVITY" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".BMainActivity" />
     </application>
 
 </manifest>
