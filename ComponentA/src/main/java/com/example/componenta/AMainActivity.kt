@@ -2,15 +2,15 @@ package com.example.componenta
 
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.example.componenta.databinding.ComponentAActivityMainBinding
-import com.example.componentbase.BaseActivity
 import com.example.componentbase.BaseCallback
 import com.example.componentbase.ComponentBService
 import com.example.componentbase.Router
 
 @Route(path = Router.ACTIVITY_A_MAIN_ACTIVITY)
-class AMainActivity : BaseActivity() {
+class AMainActivity : AppCompatActivity() {
     private lateinit var binding: ComponentAActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
