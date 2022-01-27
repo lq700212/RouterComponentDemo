@@ -1,7 +1,9 @@
 package com.example.componenta
 
+import android.widget.Toast
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.example.componentbase.ModuleApplication
+import com.example.componentbase.RealApplication
 import com.example.componentbase.Router
 
 /**
@@ -10,4 +12,10 @@ import com.example.componentbase.Router
  * @Description 描述：
  **/
 @Route(path = Router.APPLICATION_A)
-class AApplication : ModuleApplication()
+class AApplication : ModuleApplication() {
+    override fun onCreate() {
+        super.onCreate()
+        Toast.makeText(RealApplication.getRealApplication(), "测试A Application", Toast.LENGTH_LONG)
+            .show()
+    }
+}

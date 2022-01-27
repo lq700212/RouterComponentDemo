@@ -1,11 +1,11 @@
 package com.example.componentdemo
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import com.example.componentbase.BaseActivity
 import com.example.componentbase.Router
 import com.example.componentdemo.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

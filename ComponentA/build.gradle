@@ -1,15 +1,22 @@
-if (COMPONENT_A_ON.toBoolean()) {
+if (IS_MODULE_RUN_ALONE.toBoolean()) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
 }
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
 
 android {
     compileSdk 31
 
     defaultConfig {
-        if (COMPONENT_A_ON.toBoolean()) {
+        if (IS_MODULE_RUN_ALONE.toBoolean()) {
             applicationId "com.example.componenta"
         }
         minSdk 21
@@ -18,12 +25,6 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
-            }
-        }
     }
 
     buildTypes {
@@ -42,16 +43,6 @@ android {
     viewBinding {
         enabled = true
     }
-
-    sourceSets {
-        main {
-            if (COMPONENT_A_ON.toBoolean()) {
-                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
-            } else {
-                manifest.srcFile 'src/main/AndroidManifest.xml'
-            }
-        }
-    }
 }
 
 dependencies {
@@ -66,4 +57,5 @@ dependencies {
 
     //组件化
     api project(":ComponentBase")
+    kapt 'com.alibaba:arouter-compiler:1.5.2'
 }

@@ -2,6 +2,7 @@ package com.example.componentbase
 
 import android.content.Context
 import android.content.res.Configuration
+import android.text.TextUtils
 
 /**
  * @author 作者：ryan.lei

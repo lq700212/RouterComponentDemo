@@ -9,9 +9,21 @@ import com.alibaba.android.arouter.launcher.ARouter
  * @date 创建时间：2021/12/24 12:20
  * @Description 描述：
  **/
-open class RealApplication : Application() {
+class RealApplication : Application() {
+    private val isDebugARouter = true
+
+    companion object {
+        private var mApplication: RealApplication? = null
+        fun getRealApplication() = mApplication
+    }
+
     override fun onCreate() {
         super.onCreate()
+        mApplication = this
+        if (isDebugARouter) {
+            ARouter.openLog()
+            ARouter.openDebug()
+        }
         ARouter.init(this)
         ApplicationDispatcher.onCreate()
     }

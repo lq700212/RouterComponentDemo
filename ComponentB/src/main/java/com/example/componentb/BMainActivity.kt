@@ -2,14 +2,14 @@ package com.example.componentb
 
 import android.os.Bundle
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.example.componentb.databinding.ActivityMainBBinding
+import com.example.componentbase.BaseActivity
 import com.example.componentbase.BaseCallback
 import com.example.componentbase.Router
 
 @Route(path = Router.ACTIVITY_B_MAIN_ACTIVITY)
-class BMainActivity : AppCompatActivity() {
+class BMainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,7 +18,7 @@ class BMainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnShowDialog.setOnClickListener {
-            BDialogManager.showAlertDialog(this, "我是弹窗，是否点击关闭", object : BaseCallback {
+            DialogManager.showAlertDialog(this, "我是弹窗，是否点击关闭", object : BaseCallback {
                 override fun onCallback() {
                     Toast.makeText(application, "关闭取消", Toast.LENGTH_LONG).show()
                 }

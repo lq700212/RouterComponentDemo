@@ -11,19 +11,19 @@ object Router {
     /**
      * Application
      */
-    const val APPLICATION_A = "/Application/AApplication"
-    const val APPLICATION_B = "/Application/BApplication"
+    const val APPLICATION_A = "/componentA/AApplication"
+    const val APPLICATION_B = "/componentB/BApplication"
 
     /**
      * Activity
      */
-    const val ACTIVITY_A_MAIN_ACTIVITY = "/Activity/AMainActivity"
-    const val ACTIVITY_B_MAIN_ACTIVITY = "/Activity/BMainActivity"
+    const val ACTIVITY_A_MAIN_ACTIVITY = "/componentA/AMainActivity"
+    const val ACTIVITY_B_MAIN_ACTIVITY = "/componentB/BMainActivity"
 
     /**
      * Dialog
      */
-    const val DIALOG_Dialog_Manager_B = "/Dialog/BDialogManager"
+    const val DIALOG_DIALOG_MANAGER_B = "/componentB/BDialogManager"
 
     fun navigation(url: String): Any? = ARouter.getInstance().build(url).navigation()
 }
