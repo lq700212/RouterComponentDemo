@@ -12,6 +12,7 @@ kapt {
 
 android {
     compileSdk 31
+    resourcePrefix "app_"
 
     defaultConfig {
         applicationId "com.example.componentdemo"

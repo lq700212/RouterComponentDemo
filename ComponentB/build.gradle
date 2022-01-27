@@ -14,6 +14,7 @@ kapt {
 
 android {
     compileSdk 31
+    resourcePrefix "component_b_"
 
     defaultConfig {
         if (IS_MODULE_RUN_ALONE.toBoolean()) {

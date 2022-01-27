@@ -12,6 +12,7 @@ kapt {
 
 android {
     compileSdk 31
+    resourcePrefix "base_"
 
     defaultConfig {
         minSdk 21

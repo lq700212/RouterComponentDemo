@@ -3,7 +3,7 @@ package com.example.componenta
 import android.os.Bundle
 import android.widget.Toast
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.example.componenta.databinding.ActivityMainABinding
+import com.example.componenta.databinding.ComponentAActivityMainBinding
 import com.example.componentbase.BaseActivity
 import com.example.componentbase.BaseCallback
 import com.example.componentbase.ComponentBService
@@ -11,11 +11,11 @@ import com.example.componentbase.Router
 
 @Route(path = Router.ACTIVITY_A_MAIN_ACTIVITY)
 class AMainActivity : BaseActivity() {
-    private lateinit var binding: ActivityMainABinding
+    private lateinit var binding: ComponentAActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainABinding.inflate(layoutInflater)
+        binding = ComponentAActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.btnOpenBDialog.setOnClickListener {
